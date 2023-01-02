@@ -52,6 +52,9 @@ void Queue::enQueue(int data){
         ptr[rear]=data;
     }
 }
+void Queue::deQueue(){
+    //pending...
+}
 int main()
 {
     Queue q(5);
@@ -60,6 +63,8 @@ int main()
     q.enQueue(30);
     q.enQueue(40);
     q.enQueue(50);
+    q.view();
+    q.deQueue();
     q.view();
     return 0;
 }
