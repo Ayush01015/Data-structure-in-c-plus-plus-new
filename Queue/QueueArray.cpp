@@ -12,7 +12,6 @@ class Queue{
         void deQueue();
         bool isEmpty();
         bool isFull();
-        int count();
         void view();
         void peek();
         ~Queue();
@@ -127,12 +126,14 @@ int main()
         case 4:
             cout<<q.isEmpty()<<endl;
             break;
-        case 5:q.exit();
+        case 5:
+            cout<<"Exited...\n";
             break;
         default:
             cout<<"Invalid Choice\n";
             break;
         }
+        break;
     }
     return 0;
 }
