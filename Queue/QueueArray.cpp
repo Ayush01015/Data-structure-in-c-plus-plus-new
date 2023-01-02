@@ -121,10 +121,16 @@ int main()
             q.deQueue();
             break;
         case 3:
-            cout<<q.isFull()<<endl;
+            if(q.isFull())
+                cout<<"Queue is Full"<<endl;
+            else
+                cout<<"Queue is not Full\n";
             break;
         case 4:
-            cout<<q.isEmpty()<<endl;
+            if(q.isEmpty())
+                cout<<"Queue is Empty\n";
+            else
+                cout<<"Queue is not Empty\n";
             break;
         case 5:
             cout<<"Exited...\n";
@@ -133,7 +139,8 @@ int main()
             cout<<"Invalid Choice\n";
             break;
         }
-        break;
+        if(choice==5)
+            break;
     }
     return 0;
 }
