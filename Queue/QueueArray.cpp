@@ -15,10 +15,29 @@ class Queue{
         void view();
         void peek();
         ~Queue();
-        void exit();
+        int count();
 };
-void Queue::exit(){
-//
+int Queue::count(){
+    int count = 0;
+    if(front==-1)
+        cout<<"Queue is Empty\n";
+    else if(front<rear){
+        for(int i=front;i<=rear;i++)
+            count++;
+    }
+    else if(front>rear){
+        for(int i=0;i<=rear;i++)
+            count++;
+        for(int j=front;j<=capacity-1;j++)
+            count++;
+    }else if(front==rear){
+        count++;
+    }
+    else if(capacity-1==rear&&front==0){
+        for(int i=0;i<capacity;i++)
+            count++;
+    }
+    return count;
 }
 Queue::~Queue(){
     delete []ptr;
@@ -104,43 +123,55 @@ void Queue::deQueue(){
 int main()
 {
     Queue q(5);
-    while(1){
-        q.view();
-        int choice;
-        cout<<"Choose your Option...\n1.Insert\n2.Delete\n3.isFull\n4.isEmpty\n5.Exit\n";
-        cin>>choice;
-        switch (choice)
-        {
-        case 1:
-            int data;
-            cout<<"Enter Value you wish to enter\n";
-            cin>>data;
-            q.enQueue(data);
-            break;
-        case 2:
-            q.deQueue();
-            break;
-        case 3:
-            if(q.isFull())
-                cout<<"Queue is Full"<<endl;
-            else
-                cout<<"Queue is not Full\n";
-            break;
-        case 4:
-            if(q.isEmpty())
-                cout<<"Queue is Empty\n";
-            else
-                cout<<"Queue is not Empty\n";
-            break;
-        case 5:
-            cout<<"Exited...\n";
-            break;
-        default:
-            cout<<"Invalid Choice\n";
-            break;
-        }
-        if(choice==5)
-            break;
-    }
+    q.enQueue(10);
+    q.enQueue(20);
+    q.enQueue(30);
+    q.enQueue(40);
+    q.enQueue(50);
+    q.view();
+    cout<<"Count: "<<q.count()<<endl;
+    q.deQueue();
+    q.deQueue();
+    cout<<"Count: "<<q.count()<<endl;
+    q.view();
+    // while(1){
+    //     q.view();
+    //     int choice;
+    //     cout<<"Choose your Option...\n1.Insert\n2.Delete\n3.isFull\n4.isEmpty\n5.Exit\n";
+    //     cin>>choice;
+    //     switch (choice)
+    //     {
+    //     case 1:
+    //         int data;
+    //         cout<<"Enter Value you wish to enter\n";
+    //         cin>>data;
+    //         q.enQueue(data);
+    //         break;
+    //     case 2:
+    //         q.deQueue();
+    //         break;
+    //     case 3:
+    //         if(q.isFull())
+    //             cout<<"Queue is Full"<<endl;
+    //         else
+    //             cout<<"Queue is not Full\n";
+    //         break;
+    //     case 4:
+    //         if(q.isEmpty())
+    //             cout<<"Queue is Empty\n";
+    //         else
+    //             cout<<"Queue is not Empty\n";
+    //         break;
+    //     case 5:
+    //         cout<<"Exited...\n";
+    //         break;
+    //     default:
+    //         cout<<"Invalid Choice\n";
+    //         break;
+    //     }
+    //     if(choice==5)
+    //         break;
+    // }
+
     return 0;   
 }
