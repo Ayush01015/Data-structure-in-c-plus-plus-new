@@ -16,8 +16,13 @@ class QLL{
         void deleteNode();
         bool isEmpty();
         void viewRF();
+        ~QLL();
 
 };
+QLL::~QLL(){
+    while(start)
+        deleteNode();
+}
 bool QLL::isEmpty(){
     return start==NULL;
 }
@@ -94,7 +99,7 @@ int main()
         l.viewRF();
         l.view();
         int choice;
-        cout<<"Choose your Option...\n1.Insert\n2.Delete\n3.viewRF\n4.isEmpty\n5.Exit\n";
+        cout<<"Choose your Option...\n1.Insert\n2.Delete\n3.viewRF\n4.isEmpty\n5.Exit\n->";
         cin>>choice;
         switch (choice)
         {
