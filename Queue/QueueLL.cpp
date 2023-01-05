@@ -1,3 +1,4 @@
+//implementation with circular linked list
 #include<bits/stdc++.h>
 using namespace std;
 class node{
@@ -17,8 +18,25 @@ class QLL{
         bool isEmpty();
         void viewRF();
         ~QLL();
+        int count();
 
 };
+int QLL::count(){
+    int c = 0;
+    if(start==NULL)
+        return 0;
+    else if(front==rear)
+        return 1;
+    else{
+        node *t = start;
+        do{
+            t=t->next;
+            c++;
+        }while(t!=start);
+        return c;
+    }
+}
+
 QLL::~QLL(){
     while(start)
         deleteNode();
@@ -99,7 +117,7 @@ int main()
         l.viewRF();
         l.view();
         int choice;
-        cout<<"Choose your Option...\n1.Insert\n2.Delete\n3.viewRF\n4.isEmpty\n5.Exit\n->";
+        cout<<"Choose your Option...\n1.Insert\n2.Delete\n3.viewRF\n4.isEmpty\n5.Count\n6.Exit\n->";
         cin>>choice;
         switch (choice)
         {
@@ -122,13 +140,16 @@ int main()
                 cout<<"Queue is not Empty\n";
             break;
         case 5:
+            cout<<"Count: "<<l.count();
+            break;
+        case 6:
             cout<<"Exited...\n";
             break;
         default:
             cout<<"Invalid Choice\n";
             break;
         }
-        if(choice==5)
+        if(choice==6)
             break;
     }
     
