@@ -1,0 +1,2 @@
+l.deleteNode();
+    l.view();
