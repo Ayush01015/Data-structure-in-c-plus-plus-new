@@ -16,10 +16,15 @@ class SLL{
         node* searchNode(int);
         void deleteLastNode();
         void deleteFirstNode();
-        
+        node* lastNode();
 
 };
-
+node* SLL::lastNode(){
+    node *t = start;
+    while(t->next!=NULL)
+        t=t->next;
+    return t;
+}
 SLL::SLL(){
     start = NULL;
 }
@@ -104,7 +109,7 @@ void Stack :: pop(){
     deleteLastNode();
 }
 void Stack :: peek(){
-    
+    node *t = lastNode();
     if(t==NULL)
         cout<<"Stack is Empty\n";
     else
@@ -114,7 +119,7 @@ int main()
 {
     Stack s1;
     s1.push(10);
-    s1.push(10);
+    s1.push(330);
     s1.peek();    
     return 0;
 }
