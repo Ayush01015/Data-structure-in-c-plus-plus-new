@@ -91,7 +91,7 @@ class Stack:private SLL{        //class stack
         }
         void pop();
         void push(int);
-        int peek();
+        void  peek();
 
 };
 void Stack :: push(int data){
@@ -100,22 +100,25 @@ void Stack :: push(int data){
 void Stack :: pop(){
     deleteLastNode();
 }
-void peek(){
-    node *t = new node;
-    while(t->next!=NULL)
-        t=t->next;
-    cout<<t->item<<endl;
+void Stack :: peek(){
+    // cout<<"peek";
+    // node *t = new node;
+    // while(t->next!=NULL){
+    //     cout<<"er"<<endl;
+    //     t=t->next;
+    // }
+    // cout<<t->item<<endl;
+    view();
         
 }
 int main()
 {
     Stack s1;
     s1.push(10);
-    s1.push(20);
     s1.push(10);
-    s1.push(40);
-    s1.push(50);
-    s1.push(60);
+    s1.push(10);
+    s1.push(10);
+    s1.push(10);
     s1.peek();    
     return 0;
 }
