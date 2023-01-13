@@ -1,0 +1,2 @@
+    p.deleteHighestPriority();
+    p.view();

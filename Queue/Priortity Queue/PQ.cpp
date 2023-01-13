@@ -18,10 +18,49 @@ class PQ{
         PQ();
         void insert(int,int);
         void view();
+        void deleteHighestPriority();
+        int getHighestPriorityElement();
+        bool isEmpty();
+        ~PQ();
 
 };
+bool PQ::isEmpty(){
+    if(start==NULL)
+        return true;
+    return false;
+}
+PQ::~PQ(){
+    node *t = start;
+    while(start){   //not tested...
+    start = t->next;
+    delete t;
+    }
+}
 PQ::PQ(){
     start = NULL;
+}
+int PQ::getHighestPriorityElement(){
+    node *t = start;
+    while(t)
+        t=t->next;
+    return t->item;  
+}
+void PQ::deleteHighestPriority(){
+    if(start==NULL)
+        cout<<"Queue is Empty\n";
+    else{
+        node *t = start;
+        node *t1 = NULL;
+        while(t->next!=NULL){
+            t1=t;
+            t=t->next;
+        }
+        if(t1!=NULL)
+            t1->next = NULL;
+        else
+            start = NULL;
+        delete t;
+    }   
 }
 void PQ::view(){
     node *t = start;
@@ -70,10 +109,6 @@ int main()
     p.insert(55,555);
     p.insert(55,666);
     p.insert(55,777);
-    p.insert(10,100);
-    p.insert(1,1111);
-    p.insert(1111,2222);
-    p.insert(1222,3333);
     p.view();
 
     return 0;
