@@ -21,14 +21,26 @@ class BST{
         void preOrder();
         void InOrder();
         void postOrder();
-        int Search(int);
+        node* Search(int);
+        node* Search(node*,int);
 };
-int BST::Search(int data){
+node* BST::Search(node *r,int data){
+    node *t = root;
     if(isEmpty())
-        cout<<"Tree is Empty\n";
-    else{
-
+        cout<<"BST is Empty\n";
+    else if(r->item==data)
+        return r;
+    else if(data<r->item){
+        if(r->left!=NULL)
+            Search(r->left,data);
+    }else if(data>r->item){
+        if(r->right!=NULL)
+            Search(r->right,data);    
     }
+}
+
+node* BST::Search(int data){
+    Search(root,data);
 }
 void BST::preOrderRec(node *t){
     if(t){
@@ -91,18 +103,16 @@ void BST::insert(int data){
 int main()
 {
     BST t;
-    t.insert(1);
-    t.insert(1);
-    t.insert(2);
-    t.insert(2);
-    t.insert(3);
-    t.insert(4);
-    t.insert(5);
-    t.insert(6);
-    t.insert(6);
-    t.insert(7);
-    t.insert(8);
-    t.insert(9);
+    t.insert(10);
+    t.insert(20);
+    t.insert(30);
+    t.insert(40);
+    t.insert(50);
+    t.insert(999);
+    
     t.preOrder();
+    cout<<endl;
+    node *t1 = t.Search(99);
+    cout<<t1->item<<endl;
     return 0;
 }
