@@ -64,6 +64,16 @@ void BST::preorderTraverse(node *r){
 void BST::preorder(){
     preorderTraverse(root);
 }
+void BST::inorderTraverse(node *r){
+    if(r){
+        inorderTraverse(r->left);
+        cout<<r->item<<" ";
+        inorderTraverse(r->right);
+    }
+}
+void BST::inorder(){
+    inorderTraverse(root);
+}
 int main()
 {
     BST t;
