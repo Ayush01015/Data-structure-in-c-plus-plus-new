@@ -30,7 +30,30 @@ BST::BST(){
 bool BST::isEmpty(){
     return root==NULL;
 }
-
+void BST::insert(int data,node *r){
+    node *n = new node;
+    n->left = NULL;
+    n->item = data;
+    n->right = NULL;
+    if(isEmpty()){
+        root=n;
+    }
+    else if(data<r->item){
+        if(r->left!=NULL) 
+            insert(data,r->left);
+        else
+            r->left = n;
+    }
+    else if(data>r->item){
+        if(r->right!=NULL) 
+            insert(data,r->right);
+        else
+            r->right = n;
+    }
+}
+void BST::insert(int data){
+    insert(data,root);
+}
 int main()
 {
     BST t;
