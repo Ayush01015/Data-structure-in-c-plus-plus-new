@@ -74,6 +74,16 @@ void BST::inorderTraverse(node *r){
 void BST::inorder(){
     inorderTraverse(root);
 }
+void BST::postorderTraverse(node *r){
+    if(r){
+        postorderTraverse(r->left);
+        postorderTraverse(r->right);
+        cout<<r->item<<" ";
+    }
+}
+void BST::postorder(){
+    postorderTraverse(root);
+}
 int main()
 {
     BST t;
