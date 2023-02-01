@@ -108,5 +108,22 @@ node* BST::Search(int data){
 int main()
 {
     BST t;
+    cout<<t.isEmpty()<<endl;
+    t.insert(60);
+    cout<<t.isEmpty()<<endl;
+    t.insert(40);
+    t.insert(20);
+    t.insert(30);
+    t.insert(22);
+    t.insert(25);
+    t.insert(90);
+    t.insert(80);
+    t.insert(100);
+    t.insert(70);
+    t.insert(75);
+    t.insert(65);
+    t.inorder();
+    node *s = t.Search(100);
+    cout<<"\n"<<s->item<<endl;
     return 0;
 }
