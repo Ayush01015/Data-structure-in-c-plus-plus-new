@@ -14,6 +14,8 @@ class BST{
         void InOrderRec(node *);
         void postOrderRec(node *);
         void insertRec(int,node*);
+        node* Search(node*,int);
+        void deleteInBST(int,node*,node*);
     public:
         BST();
         bool isEmpty();
@@ -22,8 +24,42 @@ class BST{
         void InOrder();
         void postOrder();
         node* Search(int);
-        node* Search(node*,int);
+        void deleteInBST(int);
 };
+void BST::deleteInBST(int data,node *parPtr,node *r){
+    if(r==NULL){
+        cout<<"BST is Empty\n";
+    }else if(data<=r->item){
+        if(r->left!=NULL)
+            deleteInBST(data,r,r->left); //passing parent and it's left child
+        if(r->left==NULL && r->right==NULL){  //0
+            parPtr->left = NULL;
+            delete r;
+        }else if(r->left!=NULL && r->right!=NULL){  //2
+
+        }else{ //1
+            parPtr->left = r->right;
+            delete r;
+        }
+    }else if(data>=r->item){
+        if(r->right!=NULL)
+            deleteInBST(data,r,r->right);
+        if(r->left==NULL&&r->right==NULL){
+            parPtr->right = NULL;
+            delete r;
+        }
+        else if(r->left!=NULL && r->right!=NULL){  //2
+
+        }else{ //1
+            parPtr->right = r->left;
+            delete r;
+        }
+    }
+}
+
+void BST::deleteInBST(int data){
+    deleteInBST(data,NULL,root);
+}
 node* BST::Search(node *r,int data){
     node *t = root;
     if(isEmpty())
@@ -112,7 +148,7 @@ int main()
     
     t.preOrder();
     cout<<endl;
-    node *t1 = t.Search(99);
+    node *t1 = t.Search(999);
     cout<<t1->item<<endl;
     return 0;
 }
