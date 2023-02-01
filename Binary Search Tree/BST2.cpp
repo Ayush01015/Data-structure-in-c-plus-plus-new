@@ -84,6 +84,27 @@ void BST::postorderTraverse(node *r){
 void BST::postorder(){
     postorderTraverse(root);
 }
+node* BST::Search(node *r,int data){
+    if(isEmpty())
+        cout<<"BST is Empty\n";
+    else if(r->item==data)
+        return r;
+    else if(data<r->item){
+        if(r->left!=NULL)
+            Search(r->left,data);  
+    }
+    else if(data>r->item){
+        if(r->right!=NULL)
+            Search(r->right,data); 
+    }
+    else{
+        return NULL;
+    }
+}
+node* BST::Search(int data){
+    return Search(root,data);
+}
+
 int main()
 {
     BST t;
