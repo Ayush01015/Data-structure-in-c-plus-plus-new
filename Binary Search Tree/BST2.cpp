@@ -54,6 +54,16 @@ void BST::insert(int data,node *r){
 void BST::insert(int data){
     insert(data,root);
 }
+void BST::preorderTraverse(node *r){
+    if(r){
+        cout<<r->item<<" ";
+        preorderTraverse(r->left);
+        preorderTraverse(r->right);
+    }
+}
+void BST::preorder(){
+    preorderTraverse(root);
+}
 int main()
 {
     BST t;
