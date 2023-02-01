@@ -31,6 +31,6 @@ BST::BST(){
 
 int main()
 {
-    
+    BST t;
     return 0;
 }
