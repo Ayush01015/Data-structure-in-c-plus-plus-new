@@ -27,7 +27,9 @@ class BST{
 BST::BST(){
     root = NULL;
 }
-
+bool BST::isEmpty(){
+    return root==NULL;
+}
 
 int main()
 {
