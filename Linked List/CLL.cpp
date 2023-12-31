@@ -5,7 +5,7 @@ class node{
         int item;
         node *next;
 };
-class CLL{
+class CLL{ 
     private:
         node *start;
     public:
