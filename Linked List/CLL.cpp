@@ -7,7 +7,7 @@ class node{
 };
 class CLL{ 
     private:
-        node *start;
+        node *start; 
     public:
         CLL();
         ~CLL();
